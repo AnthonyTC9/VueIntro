@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="vuejs.svg" />
+    <title>Vue-App</title>
+</head>
+<style>
+    .color_rojo{
+        color: red;
+    }
+    .color_verde{
+        color:green;
+    }
+</style>
+<body>
+
+    <h1>Aprendiendo VUE</h1>
+
+    <div id="app">
+
+        <p>{{ saludar }}</p>
+
+        <h2>Directivas Vue</h2>
+        <h3>v-show</h3>
+        <p v-show="numero > 1">Texto solo si activo = true</p>
+        <h3>v-if - condicional</h3>
+        <p v-if="activo === true">si es activo</p>
+        <p v-else >No es acivo</p>
+        <h3>V-FOR directiva para sentencias repetitivas</h3>
+
+        <ul>
+           <!-- <li v-for="numero in lista">Numero: {{numero}}</li>-->
+            <li v-for="n in 5" :key="n">Numero: {{n}}</li>
+        </ul>
+
+        <h3>V-HTML directiva para pintar html</h3>
+        <p v-html="blog"></p>
+
+        <h3>Bindings</h3>
+        <p>
+            <input type="text" v-model="texto"/>
+        </p>
+        <p>{{ texto }}</p>
+        <h3>Eventos y funciones</h3>
+        <button @click="saludando()">Saludar</button>
+       <!-- <h3>Saludo desde input, Bindings</h3>
+        <button @click="saludando2()">Saludar2</button>
+        <h3>Saludo desde funcion, pasando parametro</h3>
+        <button @click="saludando3('saludo desde el html')">Saludar3</button>-->
+        <p></p>
+        <input type="text" placeholder="nombres" v-model="full_name">
+        <a href="#" @click="verificarFullName()">Verificar Nombre</a>
+        <p style="color:  red">{{ validation_error }}</p>
+
+        <h3>Binding de clases</h3>
+        <label for="nombre" :class="{ color_verde:text_success, color_rojo:text_error }">Nombres</label>
+        <input type="text" v-model="nombre">
+        <button @click="verificarNombre()">Comprobar</button>
+        <h3>Binding de Styles</h3>
+        <input type="text" v-model="sizetxt">
+        <button @click="cambiarTexto()">Cambiar Tamaño</button>
+        <p :style="{ fontSize: font_texto + 'px' }">Curso Vue.js</p>
+
+        <input type="text" v-model="sizetxt">
+        <!--<button @click="cambiarTexto()">Cambiar Tamaño</button>-->
+        <p :style="{ fontSize: sizetxt + 'px' }">Curso Vue.js</p>
+
+
+
+    </div>
+
+
+
+
+    
+
+
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="practica.js"></script>
+
+</body>
+</html>
